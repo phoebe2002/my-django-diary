@@ -1,0 +1,26 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>My Women's Diary {% block title %}
+    {% endblock %}</title>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        {% include 'partials/sidebar.html %}
+
+        <main role="main">
+            {% block content %}
+
+
+            {% endblock %}
+        </main>
+    </div>
+</div>
+
+<script src="{% static 'main.js' %}"></script>
+</body>
+</html>

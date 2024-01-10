@@ -1,0 +1,73 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Login Prompt</title>-->
+<!--</head>-->
+<!--<body>-->
+<!-- <h2>Login Prompt</h2>-->
+<!--    <p>If you already have an account, you can log in below:</p>-->
+
+<!--    &lt;!&ndash; Add your login form or link to the login page &ndash;&gt;-->
+<!--    <a href="{% url 'login_prompt' %}">Log In</a>-->
+<!--</body>-->
+<!--</html>-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Women's Diary - Login</title>
+  <link rel='stylesheet' href='/static/css/signup.css'>
+  <!-- Include Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+
+<!-- Login Form -->
+<div class="container">
+  <div class="screen">
+    <div class="screen__content">
+              <p>If you already have an account, you can log in below:</p>
+
+      {% if error_message %}
+        <p style="color: red;">{{ error_message }}</p>
+      {% endif %}
+
+      <form class="signup" method="post" action="{% url 'user_login' %}">
+        {% csrf_token %}
+        <div class="signup__field">
+          <i class="signup__icon fas fa-user"></i>
+          <input type="text" class="signup__input" placeholder="User name / Email">
+        </div>
+        <div class="signup__field">
+          <i class="signup__icon fas fa-lock"></i>
+          <input type="password" class="signup__input" placeholder="Password">
+        </div>
+        <button class="button signup__submit">
+          <span class="button__text">Log In Now</span>
+          <i class="button__icon fas fa-chevron-right"></i>
+        </button>
+      </form>
+      <div class="social-signup">
+        <h3>Log in via</h3>
+        <div class="social-icons">
+          <a href="#" class="social-signup__icon fab fa-instagram"></a>
+          <a href="#" class="social-signup__icon fab fa-facebook"></a>
+          <a href="#" class="social-signup__icon fab fa-twitter"></a>
+        </div>
+      </div>
+    </div>
+    <div class="screen__background">
+      <span class="screen__background__shape screen__background__shape4"></span>
+      <span class="screen__background__shape screen__background__shape3"></span>
+      <span class="screen__background__shape screen__background__shape2"></span>
+      <span class="screen__background__shape screen__background__shape1"></span>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

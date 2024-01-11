@@ -5,10 +5,11 @@ from . import views
 from .views import register, confirm_email, user_login, login_prompt
 from django.contrib.auth import views as auth_views
 from .views import home, save_entry_view, add_entry
-
+from django.contrib import admin
 
 urlpatterns = [
     path('', views.index, name="mywdiary"),
+    path('admin/', admin.site.urls),
     path('add-entry/', add_entry, name="add_entry"),
     path('register/', register, name='register'),
     path('login/', user_login, name='user_login'),

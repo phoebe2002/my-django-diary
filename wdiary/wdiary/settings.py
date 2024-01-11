@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'mywdiary',
     'django.contrib.admin',
+    'django.contrib.sites'
 ]
 
 MIDDLEWARE = [

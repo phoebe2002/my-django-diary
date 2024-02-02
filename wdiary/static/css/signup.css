@@ -1,162 +1,53 @@
-/*!* signup.css *!*/
-/*body {*/
-/*  margin: 0;*/
-/*  padding: 0;*/
-/*  font-family: Arial, sans-serif;*/
-/*}*/
-
-/*.container {*/
-/*  display: flex;*/
-/*  justify-content: center;*/
-/*  align-items: center;*/
-/*  height: 100vh;*/
-/*}*/
-
-/*.screen {*/
-/*  position: relative;*/
-/*  display: flex;*/
-/*  overflow: hidden;*/
-/*  border-radius: 15px;*/
-/*}*/
-
-/*.screen__background {*/
-/*  width: 200%;*/
-/*  position: absolute;*/
-/*  top: 0;*/
-/*  left: 0;*/
-/*  bottom: 0;*/
-/*  right: 0;*/
-
-/*  background: linear-gradient(-135deg, rgba(153, 87, 239, 0.97) 0%, rgba(213, 210, 210, 0.4) 100%);*/
-/*  z-index: -1;*/
-/*  animation: moveBackground 10s linear infinite;*/
-/*}*/
-
-/*.screen__background__shape {*/
-/*  position: absolute;*/
-/*  width: 100vmax;*/
-/*  height: 100vmax;*/
-/*  background: rgba(255, 255, 255, 0.03);*/
-/*  clip-path: circle(20% at 90% 20%);*/
-/*}*/
-
-/*.screen__background__shape1 {*/
-/*  top: 10%;*/
-/*  left: 70%;*/
-/*  animation: moveShape1 20s linear infinite;*/
-/*}*/
-
-/*.screen__background__shape2 {*/
-/*  top: 20%;*/
-/*  left: 40%;*/
-/*  animation: moveShape2 20s linear infinite;*/
-/*}*/
-
-/*.screen__background__shape3 {*/
-/*  top: 40%;*/
-/*  left: 70%;*/
-/*  animation: moveShape3 20s linear infinite;*/
-/*}*/
-
-/*.screen__background__shape4 {*/
-/*  top: 60%;*/
-/*  left: 40%;*/
-/*  animation: moveShape4 20s linear infinite;*/
-/*}*/
-
-/*.screen__content {*/
-/*  z-index: 1;*/
-/*  display: flex;*/
-/*  flex-direction: column;*/
-/*  align-items: center;*/
-/*  text-align: center;*/
-/*  padding: 50px;*/
-/*}*/
-
-/*.signup {*/
-/*  display: flex;*/
-/*  flex-direction: column;*/
-/*  align-items: center;*/
-/*}*/
-
-/*.signup__field {*/
-/*  position: relative;*/
-/*  margin-bottom: 20px;*/
-/*}*/
-
-/*.signup__icon {*/
-/*  position: absolute;*/
-/*  color: rgba(42, 42, 38, 0.07);*/
-/*  font-size: 18px;*/
-/*  top: 50%;*/
-/*  left: -20px;*/
-/*  transform: translateY(-50%);*/
-/*}*/
-
-/*.signup__input {*/
-/*  width: 100%;*/
-/*  padding: 15px;*/
-/*  border: none;*/
-/*  border-bottom: 1px solid #aaa;*/
-/*  outline: none;*/
-/*}*/
-
-/*.button {*/
-/*  display: flex;*/
-/*  justify-content: center;*/
-/*  align-items: center;*/
-/*  padding: 10px 20px;*/
-/*  background-color: rgba(42, 42, 38, 0.07);*/
-/*  color: #fff;*/
-/*  border: none;*/
-/*  border-radius: 5px;*/
-/*  cursor: pointer;*/
-/*  transition: background-color 0.3s ease;*/
-/*}*/
-
-/*.button:hover {*/
-/*  background-color: #ff00ba;*/
-/*}*/
-
-/*.button__text {*/
-/*  margin-right: 10px;*/
-
-/*}*/
-
-/*.button__icon {*/
-/*  font-size: 18px;*/
-/*}*/
-
-/*.social-signup {*/
-/*  margin-top: 20px;*/
-/*}*/
-
-/*.social-icons {*/
-/*  display: flex;*/
-/*}*/
-
-/*.social-signup__icon {*/
-/*  font-size: 24px;*/
-/*  color: rgba(42, 42, 38, 0.07);*/
-/*  margin: 0 20px;*/
-/*  cursor: pointer;*/
-/*}*/
-
-
 /* signup.css */
 body {
   height:100%;
+  width:100%;
   margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  /*background: linear-gradient(-135deg, rgba(164, 117, 224, 0.97) 0%, rgba(213, 210, 210, 0.4) 100%);*/
+
 
 }
 
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+
+   height: 100%;
+    /*background: linear-gradient(-135deg, rgba(164, 117, 224, 0.97) 0%, rgba(213, 210, 210, 0.4) 100%);*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  background: url('logo.png') center/80px repeat;
+  opacity: 0.5; /* Adjust the opacity as needed */
+  z-index: -1; /* Place the flower image behind the container content */
+}
+
+.container-login {
+
+   height: 100%;
+    /*background: linear-gradient(-135deg, rgba(164, 117, 224, 0.97) 0%, rgba(213, 210, 210, 0.4) 100%);*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+}
+
+.conf{
+    /*padding:10%;*/
 }
 
 .screen {
@@ -164,8 +55,50 @@ body {
   display: flex;
   overflow: hidden;
   border-radius: 15px;
+  z-index: 2;
+  /*  min-height: 0; !* Allow content to shrink *!*/
+  /*flex: 1;*/
 }
 
+@media (max-width: 600px) {
+  .screen__content {
+    padding: 20px; /* Adjust padding for smaller screens */
+  }
+  .container{
+      height: 100%;
+    background: linear-gradient(-135deg, rgba(164, 117, 224, 0.97) 0%, rgba(213, 210, 210, 0.4) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+  }
+
+.landing-page {
+    height: 100%;
+    background: linear-gradient(-135deg, rgba(164, 117, 224, 0.97) 0%, rgba(213, 210, 210, 0.4) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+  .button {
+    padding: 10px 20px; /* Adjust button padding for smaller screens */
+  }
+
+  .social-icons {
+    flex-direction: column; /* Stack social icons in a column on smaller screens */
+    margin-top: 0;
+  }
+
+  .social-signup__icon {
+    margin: 10px 0;
+  }
+
+
+}
 .screen__background {
   width: 200%;
   position: absolute;
@@ -174,8 +107,8 @@ body {
   bottom: 0;
   right: 0;
 
-  background: linear-gradient(-135deg, rgba(153, 87, 239, 0.97) 0%, rgba(213, 210, 210, 0.4) 100%);
-  z-index: -1;
+  background: linear-gradient(-135deg, rgb(141, 123, 187) 0%, rgba(185, 183, 183, 0.4) 100%);
+  /*z-index: 1;*/
   animation: moveBackground 10s linear infinite;
 }
 
@@ -217,7 +150,8 @@ body {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 50px;
+  padding: 30px;
+  overflow-y: auto;
 }
 
 .signup {
@@ -246,13 +180,14 @@ body {
   border: none;
   border-bottom: 1px solid #aaa;
   outline: none;
+  font-size: 16px;
 }
 
 .button {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px 20px;
+  padding: 15px 20px;
   background-color: rgba(42, 42, 38, 0.07);
   color: #fff;
   border: none;
@@ -262,7 +197,7 @@ body {
 }
 
 .button:hover {
-  background-color: #ff00ba;
+  background-color: #d800a9;
 }
 
 .button__text {
@@ -280,14 +215,104 @@ body {
 
 .social-icons {
   display: flex;
+  margin-top: 10px;
 }
 
 .social-signup__icon {
   font-size: 24px;
-  color: rgba(42, 42, 38, 0.07);
+  color: rgba(33, 33, 31, 0.07);
   margin: 0 20px;
   cursor: pointer;
 }
+
+.already-have-account {
+  margin-top: 20px;
+  color: #555;
+}
+
+.already-have-account a {
+  color: #79456b;
+  text-decoration: none;
+}
+
+.already-have-account a:hover {
+  text-decoration: underline;
+}
+
+
+/* Add these styles to the end of your signup.css file */
+
+
+.landing-page {
+    height: 100%;
+    background: linear-gradient(-135deg, rgba(164, 117, 224, 0.97) 0%, rgba(213, 210, 210, 0.4) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.landing-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  background: url('logo.png') center/80px repeat;
+  opacity: 0.5; /* Adjust the opacity as needed */
+  z-index: -1; /* Place the flower image behind the container content */
+}
+
+
+
+
+.landing-page header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px;
+}
+
+
+
+.landing-page .content {
+    border-radius: 15px;
+    padding: 100px;
+    margin-top: 20px;
+    color: #070101; /* Adjust text color as needed */
+    z-index:1;
+     /*background: linear-gradient(-135deg, rgba(84, 40, 141, 0.97) 0%, rgba(185, 183, 183, 0.4) 100%);*/
+}
+
+.landing-page .img {
+    width: 20px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-top: 20px; /* Add margin for spacing */
+}
+
+
+header {
+    padding: 20px;
+    display: flex;
+    align-items: center; /* Align items vertically in the header */
+}
+
+header img {
+    width: 10px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 10px; /* Add margin for spacing */
+}
+
+.error-message {
+            color: red;
+            font-size: smaller;
+    word-wrap: break-word;
+        }
+
+
+
+
 
 @keyframes moveBackground {
   to {
@@ -317,55 +342,4 @@ body {
   to {
     transform: translate(-50%, -50%) rotate(-360deg);
   }
-}
-
-/* Add these styles to the end of your signup.css file */
-
-
-.landing-page {
-    height: 100%;
-    background: linear-gradient(-135deg, rgba(164, 117, 224, 0.97) 0%, rgba(213, 210, 210, 0.4) 100%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-
-
-
-.landing-page header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 20px;
-}
-
-
-
-.landing-page .content {
-    background-color: rgb(141, 123, 187); /* Adjust background color as needed */
-    border-radius: 15px;
-    padding: 100px;
-    margin-top: 20px;
-    color: #070101; /* Adjust text color as needed */
-}
-
-.landing-page .img {
-    width: 20px; /* Adjust the width as needed */
-    height: auto; /* Maintain aspect ratio */
-    margin-top: 20px; /* Add margin for spacing */
-}
-
-
-header {
-    padding: 20px;
-    display: flex;
-    align-items: center; /* Align items vertically in the header */
-}
-
-header img {
-    width: 10px; /* Adjust the width as needed */
-    height: auto; /* Maintain aspect ratio */
-    margin-right: 10px; /* Add margin for spacing */
 }

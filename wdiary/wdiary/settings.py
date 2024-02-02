@@ -16,7 +16,6 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
@@ -26,8 +25,13 @@ SECRET_KEY = 'django-insecure-ut))9mos^o67^i=6twzjgtn^)pe7rx@y9dcp^m6mjv4ob5nt4$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = [
+    '0.0.0.0',
+    '10.5.18.5',
+    '127.0.0.1',
+    '192.168.254.102',
+    '192.168.0.227',
+]
 
 # Application definition
 
@@ -39,7 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'mywdiary',
     'django.contrib.admin',
-    'django.contrib.sites'
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account'
 ]
 
 MIDDLEWARE = [
@@ -50,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'wdiary.urls'
@@ -65,13 +72,13 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # 'allauth.account.context_processors.account',
             ],
         },
     },
 ]
 
 WSGI_APPLICATION = 'wdiary.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
@@ -101,7 +108,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
@@ -112,7 +118,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
@@ -126,19 +131,39 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
 # User authentification
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'tutors.zw@gmail.com'  # Replace with your Gmail address
-EMAIL_HOST_PASSWORD = 'Sadza.1234'  # Replace with your Gmail password or an app password
+EMAIL_HOST = '127.0.0.1'
+EMAIL_PORT = 1025
+EMAIL_USE_TLS = False
 
 AUTH_USER_MODEL = 'mywdiary.CustomUser'
 
 
-# LOGIN
+
+ACCOUNT_FORMS = {
+    'signup': 'mywdiary.forms.SignUpForm',
+    # Other custom forms if needed
+}
+
+
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_LOGOUT_ON_GET = True
+# LOGIN_URL = '/register/'
 LOGIN_URL = '/register/'
 LOGIN_REDIRECT_URL = '/home/'
+ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = '/register/'
+ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = '/home/'
 
+AUTHENTICATION_BACKENDS = [
+
+    'django.contrib.auth.backends.ModelBackend',
+    # 'allauth.account.auth_backends.AuthenticationBackend',
+    # ...
+]
+
+SITE_ID = 1

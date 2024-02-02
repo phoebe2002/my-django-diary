@@ -1,0 +1,23 @@
+{% load static %}
+<!-- confirmation_sent.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}?v=2">
+    <title>Confirmation Email Sent</title>
+</head>
+<body>
+<div class="container">
+<div class="conf">
+    <h1>Confirmation Email Sent</h1>
+    {% if email_address %}
+        <p>We have sent a confirmation email to {{ email_address }}. Please check your inbox and follow the instructions to activate your account.</p>
+    {% else %}
+        <p>We have sent a confirmation email to your registered email address. Please check your inbox and follow the instructions to activate your account.</p>
+    {% endif %}
+</div>
+</div>
+</body>
+</html>

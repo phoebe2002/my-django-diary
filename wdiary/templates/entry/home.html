@@ -1,31 +1,86 @@
 {% load static %}
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+{#    <meta charset="UTF-8">#}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Welcome to Women's Diary </title>
-    <link rel='stylesheet' href='/static/css/signup.css'>
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}?v=2">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 <body>
+{% block content %}
 <div class="landing-page">
 {#<header>#}
 {#     <img src="../../static/css/logo.png" alt="Women's Diary Logo">#}
 {#</header>#}
+    <div class="screen">
+ <div class="screen__background">
+      <span class="screen__background__shape screen__background__shape4"></span>
+      <span class="screen__background__shape screen__background__shape3"></span>
+      <span class="screen__background__shape screen__background__shape2"></span>
+      <span class="screen__background__shape screen__background__shape1"></span>
+    </div>
     <div class="content">
 
-        <h1>Welcome to Women's Diary</h1>
-
-        <p>Explore your thoughts and feelings in your personal diary.</p>
+        <h1>Welcome to Open Women's Diary</h1>
+        <p>Explore your thoughts and feelings anonymously!.</p>
 
         <!-- Display recent diary entries here -->
         <h2>Recent Diary Entries</h2>
-        <ul>
-            {% for entry in recent_entries %}
-                <li>{{ entry.title }} - {{ entry.date }}</li>
-            {% endfor %}
-        </ul>
 
-    <a href="{% url 'add_entry' %}" >Add Diary Entry</a>
-    </div>
+        <form method="post" action="{% url 'delete_selected_entries' %}">
+    {% csrf_token %}
+    <ul>
+        {% for entry in recent_entries %}
+            <li>
+                <label>
+                    <input type="checkbox" name="selected_entries" value="{{ entry.id }}">
+                </label>
+                <a href="{% url 'view_entry' entry.id %}">{{ entry.title }}</a>
+                - {{ entry.date }}
+            </li>
+        {% endfor %}
+    </ul>
+    <button type="submit">Delete Selected Entries</button>
+</form>
+
+    <a href="{% url 'save_entry' %}" >Add Diary Entry</a>
+{#    <a href="{% url 'add_entry' %}" >Add Diary Entry</a>#}
+    <!-- Include this link where it makes sense in your templates -->
+       <br>
+        <a href="{% url 'export_diary_entries' %}">Export Diary Entries as Styled XML</a>
+
 </div>
+{% endblock %}
+
+</div>
+</div>
+
 </body>
+<script>
+    $(document).ready(function() {
+        // Handle deletion success
+        $(".delete-form").submit(function(e) {
+            e.preventDefault(); // Prevent the form from submitting normally
+
+            // Reference the form and the selected checkboxes
+            var form = $(this);
+            var selectedCheckboxes = form.find('input[name="selected_entries"]:checked');
+
+            // AJAX request to delete selected entries
+            $.ajax({
+                type: form.attr('method'),
+                url: form.attr('action'),
+                data: form.serialize(),
+                success: function() {
+                    // Remove the corresponding list items after successful deletion
+                    selectedCheckboxes.closest('li').remove();
+                },
+                error: function() {
+                    console.error('Error occurred during deletion.');
+                }
+            });
+        });
+    });
+</script>
 </html>

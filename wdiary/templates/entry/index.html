@@ -1,10 +1,11 @@
 {% load static %}
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+{#  <meta charset="UTF-8">#}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Women's Diary</title>
 
-  <link rel='stylesheet' href="{% static 'css/signup.css' %}">
+  <link rel="stylesheet" href="{% static 'css/signup.css' %}?v=2">
   <!-- Include Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -13,24 +14,46 @@
 <div class="container">
   <div class="screen">
     <div class="screen__content">
-      <form class="signup">
-        <div class="signup__field">
-          <i class="signup__icon fas fa-user"></i>
-          <input type="text" class="signup__input" placeholder="User name / Email">
-        </div>
-        <div class="signup__field">
-          <i class="signup__icon fas fa-lock"></i>
-          <input type="password" class="signup__input" placeholder="Password">
-        </div>
-        <div class="signup__field">
-          <i class="signup__icon fas fa-lock"></i>
-          <input type="password" class="signup__input" placeholder="Confirm Password">
-        </div>
-        <button class="button signup__submit">
+      <form method="post" class="signup" action="{% url 'mywdiary' %}">
+          {% csrf_token %}
+          <p style="color: red;">
+              {% for field, errors in form.errors.items %}
+                {% for error in errors %}
+                    {{ error }}
+                {% endfor %}
+              {% endfor %}
+          </p>
+
+         <div class="signup__field">
+            <i class="signup__icon fas fa-user"></i>
+            {{ form.username.label_tag }}
+            {{ form.username }}
+          </div>
+
+          <!-- Add the email field -->
+          <div class="signup__field">
+            <i class="signup__icon fas fa-envelope"></i>
+            {{ form.email.label_tag }}
+            {{ form.email }}
+          </div>
+
+          <!-- Add the password fields -->
+          <div class="signup__field">
+            <i class="signup__icon fas fa-lock"></i>
+            {{ form.password1.label_tag }}
+            {{ form.password1 }}
+          </div>
+          <div class="signup__field">
+            <i class="signup__icon fas fa-lock"></i>
+            {{ form.password2.label_tag }}
+            {{ form.password2 }}
+          </div>
+        <button type="submit" class="button signup__submit">
           <span class="button__text">Sign Up Now</span>
           <i class="button__icon fas fa-chevron-right"></i>
         </button>
       </form>
+
       <div class="social-signup">
         <h3>Sign up via</h3>
         <div class="social-icons">
@@ -40,7 +63,7 @@
         </div>
         <div class="already-have-account">
     <p>Already have an account?</p>
-    <a href="{% url 'login_prompt' %}">Log in here</a>
+    <a href="{% url 'user_login' %}">Log in here</a>
 </div>
       </div>
     </div>
@@ -52,40 +75,5 @@
     </div>
   </div>
 </div>
-
-<!-- partial -->
-
 </body>
 </html>
-
-
-
-
-
-
-
-<!--&lt;!&ndash;<!DOCTYPE html>&ndash;&gt;-->
-<!--&lt;!&ndash;<html lang="en">&ndash;&gt;-->
-<!--&lt;!&ndash;<head>&ndash;&gt;-->
-<!--&lt;!&ndash;    <meta charset="UTF-8">&ndash;&gt;-->
-<!--&lt;!&ndash;    <meta name="viewport" content="width=device-width, initial-scale=1.0">&ndash;&gt;-->
-<!--&lt;!&ndash;    <title>Title</title>&ndash;&gt;-->
-<!--&lt;!&ndash;    {% load static %}&ndash;&gt;-->
-<!--&lt;!&ndash;    <link rel="stylesheet" href="{% static 'main.css' %}">&ndash;&gt;-->
-<!--&lt;!&ndash;</head>&ndash;&gt;-->
-<!--&lt;!&ndash;<body>&ndash;&gt;-->
-<!--&lt;!&ndash;<h1 class="ok">Entry List</h1>&ndash;&gt;-->
-
-<!--&lt;!&ndash;<ul class="list-group">&ndash;&gt;-->
-<!--&lt;!&ndash;  <li class="list-group-item">Happy Day</li>&ndash;&gt;-->
-<!--&lt;!&ndash;  <li class="list-group-item">Happy Day</li>&ndash;&gt;-->
-<!--&lt;!&ndash;  <li class="list-group-item">Happy Day</li>&ndash;&gt;-->
-<!--&lt;!&ndash;  <li class="list-group-item">Happy Day</li>&ndash;&gt;-->
-<!--&lt;!&ndash;  <li class="list-group-item">Happy Day</li>&ndash;&gt;-->
-<!--&lt;!&ndash;  <li class="list-group-item">Happy Day</li>&ndash;&gt;-->
-<!--&lt;!&ndash;  <li class="list-group-item">Happy Day</li>&ndash;&gt;-->
-<!--&lt;!&ndash;  <li class="list-group-item">Happy Day</li>&ndash;&gt;-->
-
-<!--&lt;!&ndash;</ul>&ndash;&gt;-->
-<!--&lt;!&ndash;</body>&ndash;&gt;-->
-<!--&lt;!&ndash;</html>&ndash;&gt;-->

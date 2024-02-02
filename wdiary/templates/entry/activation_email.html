@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Confirmation</title>
+</head>
+<body>
+    <p>Hello {{ user.username }},</p>
+    <p>Thank you for registering with our site. Please click the link below to confirm your email address:</p>
+    <a href="http://192.168.0.227:8000{% url 'home' %}">Confirm Email</a>
+    <p>If you didn't register on our site, you can ignore this email.</p>
+    <p>Best regards,<br> Your Site Team</p>
+</body>
+</html>

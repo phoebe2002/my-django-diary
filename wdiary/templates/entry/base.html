@@ -1,0 +1,32 @@
+<!-- base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Women's Diary{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <!-- Include any other common stylesheets, scripts, etc. -->
+</head>
+<body>
+    <div class="header">
+        <img src="{% static 'css/logo.png' %}" alt="Women's Diary Logo">
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'add_entry' %}">Add Diary Entry</a></li>
+                <!-- Add more navigation links as needed -->
+            </ul>
+        </nav>
+    </div>
+
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+
+    <div class="footer">
+        <!-- Include common footer elements: copyright, links, etc. -->
+        <p>&copy; 2024 Women's Diary. All rights reserved.</p>
+    </div>
+</body>
+</html>

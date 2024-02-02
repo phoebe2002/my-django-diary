@@ -1,255 +1,37 @@
-/*!* signup.css *!*/
-/*body {*/
-/*  margin: 0;*/
-/*  padding: 0;*/
-/*  font-family: Arial, sans-serif;*/
-/*}*/
-
-/*.container {*/
-/*  display: flex;*/
-/*  justify-content: center;*/
-/*  align-items: center;*/
-/*  height: 100vh;*/
-/*}*/
-
-/*.screen {*/
-/*  position: relative;*/
-/*  display: flex;*/
-/*  overflow: hidden;*/
-/*  border-radius: 15px;*/
-/*}*/
-
-/*.screen__background {*/
-/*  width: 200%;*/
-/*  position: absolute;*/
-/*  top: 0;*/
-/*  left: 0;*/
-/*  bottom: 0;*/
-/*  right: 0;*/
-/*  background: linear-gradient(-135deg, #ff00ba 0%, #fae713 100%);*/
-/*  z-index: -1;*/
-/*  animation: moveBackground 10s linear infinite;*/
-/*}*/
-
-/*.screen__background__shape {*/
-/*  position: absolute;*/
-/*  width: 100vmax;*/
-/*  height: 100vmax;*/
-/*  background: rgba(255, 255, 255, 0.03);*/
-/*  clip-path: circle(20% at 90% 20%);*/
-/*}*/
-
-/*.screen__background__shape1 {*/
-/*  top: 10%;*/
-/*  left: 70%;*/
-/*  animation: moveShape1 20s linear infinite;*/
-/*}*/
-
-/*.screen__background__shape2 {*/
-/*  top: 20%;*/
-/*  left: 40%;*/
-/*  animation: moveShape2 20s linear infinite;*/
-/*}*/
-
-/*.screen__background__shape3 {*/
-/*  top: 40%;*/
-/*  left: 70%;*/
-/*  animation: moveShape3 20s linear infinite;*/
-/*}*/
-
-/*.screen__background__shape4 {*/
-/*  top: 60%;*/
-/*  left: 40%;*/
-/*  animation: moveShape4 20s linear infinite;*/
-/*}*/
-
-/*.screen__content {*/
-/*  z-index: 1;*/
-/*  display: flex;*/
-/*  flex-direction: column;*/
-/*  align-items: center;*/
-/*  text-align: center;*/
-/*  padding: 50px;*/
-/*}*/
-
-/*.signup {*/
-/*  display: flex;*/
-/*  flex-direction: column;*/
-/*  align-items: center;*/
-/*}*/
-
-/*.signup__field {*/
-/*  position: relative;*/
-/*  margin-bottom: 20px;*/
-/*}*/
-
-/*.signup__icon {*/
-/*  position: absolute;*/
-/*  color: #aaa;*/
-/*  font-size: 18px;*/
-/*  top: 50%;*/
-/*  left: 15px;*/
-/*  transform: translateY(-50%);*/
-/*}*/
-
-/*.signup__input {*/
-/*  width: 100%;*/
-/*  padding: 15px;*/
-/*  border: none;*/
-/*  border-bottom: 1px solid #aaa;*/
-/*  outline: none;*/
-/*}*/
-
-/*.button {*/
-/*  display: flex;*/
-/*  justify-content: center;*/
-/*  align-items: center;*/
-/*  padding: 10px 20px;*/
-/*  background-color: #fae713;*/
-/*  color: #fff;*/
-/*  border: none;*/
-/*  border-radius: 5px;*/
-/*  cursor: pointer;*/
-/*  transition: background-color 0.3s ease;*/
-/*}*/
-
-/*.button:hover {*/
-/*  background-color: #ff00ba;*/
-/*}*/
-
-/*.button__text {*/
-/*  margin-right: 10px;*/
-/*}*/
-
-
-
-
-
-/*last uncommented part*/
-/*body {*/
-/*    margin: 0;*/
-/*    padding: 0;*/
-/*    font-family: 'Courier New', Courier, monospace;*/
-/*    background-color: #f9f9f9;*/
-/*}*/
-
-/*.notepad-container {*/
-/*    max-width: 800px;*/
-/*    margin: 50px auto;*/
-/*    padding: 20px;*/
-/*    background-color: #fff;*/
-/*    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);*/
-/*}*/
-
-/*h1 {*/
-/*    text-align: center;*/
-/*}*/
-
-/*form {*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*}*/
-
-/*label {*/
-/*    font-weight: bold;*/
-/*    margin-bottom: 5px;*/
-/*}*/
-
-/*input, textarea {*/
-/*    padding: 10px;*/
-/*    margin-bottom: 15px;*/
-/*    border: 1px solid #ddd;*/
-/*    border-radius: 5px;*/
-/*    font-family: 'Courier New', Courier, monospace;*/
-/*}*/
-
-/*button {*/
-/*    padding: 10px;*/
-/*    background-color: #4CAF50;*/
-/*    color: #fff;*/
-/*    border: none;*/
-/*    border-radius: 5px;*/
-/*    cursor: pointer;*/
-/*}*/
 
 button:hover {
     background-color: #45a049;
 }
 
 
-/*.button__icon {*/
-/*  font-size: 18px;*/
-/*}*/
-
-/*.social-signup {*/
-/*  margin-top: 20px;*/
-/*}*/
-
-/*.social-icons {*/
-/*  display: flex;*/
-/*}*/
-
-/*.social-signup__icon {*/
-/*  font-size: 24px;*/
-/*  color: #aaa;*/
-/*  margin: 0 10px;*/
-/*  cursor: pointer;*/
-/*}*/
-
-/*@keyframes moveBackground {*/
-/*  to {*/
-/*    transform: translateX(-50%);*/
-/*  }*/
-/*}*/
-
-/*@keyframes moveShape1 {*/
-/*  to {*/
-/*    transform: translate(-50%, -50%) rotate(360deg);*/
-/*  }*/
-/*}*/
-
-/*@keyframes moveShape2 {*/
-/*  to {*/
-/*    transform: translate(-50%, -50%) rotate(-360deg);*/
-/*  }*/
-/*}*/
-
-/*@keyframes moveShape3 {*/
-/*  to {*/
-/*    transform: translate(-50%, -50%) rotate(360deg);*/
-/*  }*/
-/*}*/
-
-/*@keyframes moveShape4 {*/
-/*  to {*/
-/*    transform: translate(-50%, -50%) rotate(-360deg);*/
-/*  }*/
-/*}*/
-
-
-/*from old entry/main.css */
-
-
 body {
     margin: 0;
     padding: 0;
     font-family: 'Courier New', Courier, monospace;
-    /*background-color: #f9f9f9;*/
-    background: linear-gradient(-135deg, rgba(153, 87, 239, 0.97) 0%, rgba(213, 210, 210, 0.4) 100%);
+    background: linear-gradient(-135deg, rgba(144, 77, 232, 0.97) 0%, rgba(185, 183, 183, 0.4) 100%);
+    /*position: absolute; !* Add relative positioning to the body *!*/
+    z-index: -1;
 }
+
+
 
 .notepad-container {
     max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 2;
 }
+
 
 .date-time {
      position: absolute;
     top: 10px;
-    right: 10px;
+    left: 10px;
     color: #fff;
 }
 
@@ -268,8 +50,9 @@ h1 {
 }
 
 form {
-    display: flex;
+    display: block;
     flex-direction: column;
+    z-index:3;
 }
 
 label {
@@ -301,4 +84,74 @@ button:hover {
 img {
     width: 100px; /* Adjust the width as needed */
     height: auto; /* Maintain aspect ratio */
+}
+
+
+.screen__background {
+  width: 200%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  background: linear-gradient(-135deg, rgba(147, 120, 185, 0.97) 0%, rgba(185, 183, 183, 0.4) 100%);
+  /*z-index: 1;*/
+  animation: moveBackground 10s linear infinite;
+}
+
+.screen__background__shape {
+  position: absolute;
+  width: 100vmax;
+  height: 100vmax;
+  background: rgba(255, 255, 255, 0.03);
+  clip-path: circle(20% at 90% 20%);
+}
+
+.screen__background__shape1 {
+  top: 10%;
+  left: 70%;
+  animation: moveShape1 20s linear infinite;
+}
+
+.screen__background__shape2 {
+  top: 20%;
+  left: 40%;
+  animation: moveShape2 20s linear infinite;
+}
+
+.screen__background__shape3 {
+  top: 40%;
+  left: 70%;
+  animation: moveShape3 20s linear infinite;
+}
+
+.screen__background__shape4 {
+  top: 60%;
+  left: 40%;
+  animation: moveShape4 20s linear infinite;
+}
+
+@media  (max-width: 600px) {
+    .notepad-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+}
+
+  .date-time {
+    top: 5px;
+    left: 5px;
+  }
+
+  .screen__background__shape {
+    width: 150vmax;
+    height: 150vmax;
+    clip-path: circle(15% at 90% 20%);
+  }
 }
